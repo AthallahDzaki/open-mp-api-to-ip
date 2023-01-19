@@ -3,7 +3,9 @@ const axios = require("axios");
 const app = express()
 const port = process.env.port || process.env.PORT || 3000
 
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { res.send("Hello :)"); })
+
+app.get('/0.3.7/internet', (req, res) => {
   axios.get("https://api.open.mp/servers").then(response => {
     let data = "";
     for(let i = 0; i < response.data.length; i++) { data += response.data[i].ip + '\n'};
